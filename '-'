@@ -1,0 +1,72 @@
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace _10GPSI
+{
+    public partial class frmPrincipal : Form
+    {
+        public frmPrincipal()
+        {
+            InitializeComponent();
+        }
+
+        private void frmPrincipal_KeyDown(object sender, KeyEventArgs e)
+        {
+            switch (e.KeyCode)
+            {
+                case Keys.W:
+                case Keys.Up:
+                    bloco.Top -= 10;
+                    break;
+                case Keys.S:
+                case Keys.Down:
+                    bloco.Top += 10;
+                    break;
+                case Keys.A:
+                case Keys.Left:
+                    bloco.Left -= 10;
+                    break;
+                case Keys.D:
+                case Keys.Right:
+                    bloco.Left += 10;
+                    break;
+                case Keys.Space:
+                    bloco.Left = this.Width / 2 - bloco.Width;
+                    bloco.Top = this.Height / 2 - bloco.Height;
+                    break;
+            }
+            if (bloco.Top < 0)
+            {
+                bloco.Top = this.Height;
+            }
+
+            if (bloco.Top > this.Height)
+            {
+                bloco.Top = 0;
+            }
+
+            if (bloco.Left < 0)
+            {
+                bloco.Left = Width;
+            }
+
+            if (bloco.Left > this.Width)
+            {
+                bloco.Left = 0;
+            }
+
+        }
+
+        private void bloco_Click(object sender, EventArgs e)
+        {
+
+        }
+    }
+}
